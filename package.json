@@ -1,0 +1,24 @@
+{
+  "name": "all-employed",
+  "version": "1.0.0",
+  "description": "A tracker that allows business owners to coordinate projects, tasks, and positions of their employees",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CIJoshTC/All-Employed.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CIJoshTC/All-Employed/issues"
+  },
+  "homepage": "https://github.com/CIJoshTC/All-Employed#readme",
+  "dependencies": {
+    "inquirer": "^9.2.10",
+    "mysql": "^2.18.1"
+  }
+}

@@ -1,12 +1,5 @@
 const mysql = require('mysql2/promise'); // Note the use of 'mysql2/promise'
-
-// Create a connection pool
-const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'your_username',
-    password: 'your_password',
-    database: 'employee_db'
-});
+const pool = require('./connection'); // Import the connection pool
 
 module.exports = pool; // Export the pool for use in other modules
 
@@ -35,7 +28,8 @@ async function startApp() {
             message: 'What would you like to do?',
             choices: [
                 'View all departments',
-                // Add more choices for other functionalities
+                'View all employees',
+                'View all roles',
                 'Exit'
             ]
         });

@@ -1,3 +1,4 @@
+const mysql = require('mysql2/promise');
 const pool = require('./connection'); // Import the connection pool
 
 // Example function to retrieve all departments using Promises

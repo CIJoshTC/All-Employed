@@ -4,7 +4,7 @@ const pool = require('./connection'); // Import the connection pool
 module.exports = pool; // Export the pool for use in other modules
 
 
-const { getAllDepartments } = require('./queries');
+const { getAllDepartments, getAllEmployees, getAllRoles } = require('./queries');
 
 async function main() {
     try {
@@ -38,7 +38,12 @@ async function startApp() {
             case 'View all departments':
                 await viewAllDepartments();
                 break;
-            // Handle other cases for different functionalities
+            case 'View all employees': // Handle this case
+                await viewAllEmployees();
+                break;
+            case 'View all roles': // Handle this case
+                await viewAllRoles();
+                break;
             case 'Exit':
                 console.log('Exiting application.');
                 process.exit();
@@ -47,12 +52,29 @@ async function startApp() {
         }
     }
 }
-
 // Function to view all departments
 async function viewAllDepartments() {
     try {
         const departments = await getAllDepartments();
         console.table(departments);
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+async function viewAllEmployees() {
+    try {
+        const employees = await getAllEmployees();
+        console.table(employees);
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
+// Function to view all roles
+async function viewAllRoles() {
+    try {
+        const roles = await getAllRoles();
+        console.table(roles);
     } catch (error) {
         console.error('Error:', error.message);
     }

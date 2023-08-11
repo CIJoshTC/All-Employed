@@ -64,7 +64,11 @@ async function viewAllDepartments() {
 async function viewAllEmployees() {
     try {
         const employees = await getAllEmployees();
-        console.table(employees);
+        if (employees.length === 0) {
+            console.log('No employees found.');
+        } else {
+            console.table(employees, ['employee_id', 'first_name', 'last_name', 'role_id', 'manager_id']);
+        }
     } catch (error) {
         console.error('Error:', error.message);
     }

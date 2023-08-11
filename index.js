@@ -1,5 +1,6 @@
 const mysql = require('mysql2/promise'); // Note the use of 'mysql2/promise'
 const pool = require('./connection'); // Import the connection pool
+const queries =require('./queries'); //imports queries.js
 
 module.exports = pool; // Export the pool for use in other modules
 
@@ -123,7 +124,7 @@ async function addEmployee() {
     ]);
 
     try {
-        await insertEmployee(employeeData); // Assuming you have a function to insert employees
+        await insertEmployee(employeeData); 
         console.log('Employee added successfully!');
     } catch (error) {
         console.error('Error adding employee:', error.message);

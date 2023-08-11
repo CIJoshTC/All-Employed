@@ -63,6 +63,26 @@ async function viewAllDepartments() {
 }
 async function viewAllEmployees() {
     try {
+        const { employeeOption } = await inquirer.prompt({
+            name: 'employeeOption',
+            type: 'list',
+            message: 'View all employees. What would you like to do next?',
+            choices: [
+                'Add an employee',
+                'Go back to main menu'
+            ]
+        });
+
+        switch (employeeOption) {
+            case 'Add an employee':
+                await addEmployee();
+                break;
+            case 'Go back to main menu':
+                return; // This will take the user back to the main menu
+            default:
+                console.log('Invalid choice. Please select a valid option.');
+        }
+
         const employees = await getAllEmployees();
         if (employees.length === 0) {
             console.log('No employees found.');

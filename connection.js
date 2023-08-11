@@ -8,4 +8,4 @@ const pool = mysql.createPool({
     database: 'employee_db'
 });
 
-module.exports = pool; // Export the pool for use in other modules
+module.exports = pool; // Exporting the pool for use in other modules

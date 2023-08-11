@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise');
-const pool = require('./connection'); // Import the connection pool
+const pool = require('./connection'); // Importing the connection pool
 
-// Example function to retrieve all departments using Promises
+// Function to retrieve all departments using Promises
 async function getAllDepartments() {
     try {
         const [rows, fields] = await pool.query('SELECT * FROM departments');
@@ -21,6 +21,7 @@ async function getAllEmployees() {
         throw error;
     }
 }
+// Function to retrieve all Roles using Promises
 async function getAllRoles() {
     try {
         const [rows, fields] = await pool.query('SELECT * FROM roles');

@@ -1,5 +1,5 @@
-const mysql = require('mysql2/promise'); // Note the use of 'mysql2/promise'//
-const pool = require('./connection'); // Import the connection pool//
+const mysql = require('mysql2/promise'); // Use of 'mysql2/promise'//
+const pool = require('./connection'); // Importing the connection pool//
 
 const { getAllDepartments, getAllEmployees, getAllRoles } = require('./queries');
 
@@ -49,7 +49,7 @@ async function startApp() {
         }
     }
 }
-// Function to view all departments
+// Function to view all departments//
 async function viewAllDepartments() {
     try {
         const departments = await getAllDepartments();
@@ -58,6 +58,7 @@ async function viewAllDepartments() {
         console.error('Error:', error.message);
     }
 }
+// Function to view all employees//
 async function viewAllEmployees() {
     try {
         const employees = await getAllEmployees();
@@ -67,6 +68,7 @@ async function viewAllEmployees() {
     }
 }
 
+/////////Commented out to test later////////////////
 //         const { employeeOption } = await inquirer.prompt({
 //             name: 'employeeOption',
 //             type: 'list',
@@ -124,7 +126,7 @@ async function viewAllEmployees() {
 //     }
 // }
 
-
+// Function to view all roles
 async function viewAllRoles() {
     try {
         const roles = await getAllRoles();
@@ -134,5 +136,5 @@ async function viewAllRoles() {
     }
 }
 
-// Call the startApp function to begin the application
+// Calling of the startApp function to begin application
 startApp();

@@ -63,10 +63,17 @@ async function viewAllDepartments() {
 }
 async function viewAllEmployees() {
     try {
+        const employees = await getAllEmployees();
+        if (employees.length === 0) {
+            console.log('No employees found.');
+        } else {
+            console.table(employees, ['employee_id', 'first_name', 'last_name', 'role_id', 'manager_id']);
+        }
+
         const { employeeOption } = await inquirer.prompt({
             name: 'employeeOption',
             type: 'list',
-            message: 'View all employees. What would you like to do next?',
+            message: 'What would you like to do next?',
             choices: [
                 'Add an employee',
                 'Go back to main menu'
@@ -82,15 +89,44 @@ async function viewAllEmployees() {
             default:
                 console.log('Invalid choice. Please select a valid option.');
         }
-
-        const employees = await getAllEmployees();
-        if (employees.length === 0) {
-            console.log('No employees found.');
-        } else {
-            console.table(employees, ['employee_id', 'first_name', 'last_name', 'role_id', 'manager_id']);
-        }
     } catch (error) {
         console.error('Error:', error.message);
+    }
+}
+//Function to add employees//
+async function addEmployee() {
+    const roles = await getAllRoles(); // Assuming you have a function to fetch roles
+    const roleChoices = roles.map(role => ({ name: role.title, value: role.id }));
+
+    const employeeData = await inquirer.prompt([
+        {
+            name: 'first_name',
+            type: 'input',
+            message: "Enter the employee's first name:"
+        },
+        {
+            name: 'last_name',
+            type: 'input',
+            message: "Enter the employee's last name:"
+        },
+        {
+            name: 'salary',
+            type: 'input',
+            message: "Enter the employee's salary:"
+        },
+        {
+            name: 'role_id',
+            type: 'list',
+            message: "Select the employee's role:",
+            choices: roleChoices
+        }
+    ]);
+
+    try {
+        await insertEmployee(employeeData); // Assuming you have a function to insert employees
+        console.log('Employee added successfully!');
+    } catch (error) {
+        console.error('Error adding employee:', error.message);
     }
 }
 

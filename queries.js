@@ -31,30 +31,30 @@ async function getAllRoles() {
     }
 }
 
-async function insertEmployee(employeeData) {
-    try {
-        const query = `
-            INSERT INTO employees (first_name, last_name, salary, role_id, 'manager_id')
-            VALUES (?, ?, ?, ?)
-        `;
-        const values = [
-            employeeData.first_name,
-            employeeData.last_name,
-            employeeData.salary,
-            employeeData.role_id
-        ];
+// async function insertEmployee(employeeData) {
+//     try {
+//         const query = `
+//             INSERT INTO employees (first_name, last_name, salary, role_id, 'manager_id')
+//             VALUES (?, ?, ?, ?)
+//         `;
+//         const values = [
+//             employeeData.first_name,
+//             employeeData.last_name,
+//             employeeData.salary,
+//             employeeData.role_id
+//         ];
 
-        const [result] = await pool.query(query, values);
-        return result;
-    } catch (error) {
-        console.error('Error inserting employee:', error);
-        throw error;
-    }
-}
+//         const [result] = await pool.query(query, values);
+//         return result;
+//     } catch (error) {
+//         console.error('Error inserting employee:', error);
+//         throw error;
+//     }
+//}
 
 module.exports = {
     getAllDepartments,
     getAllEmployees,
     getAllRoles,
-    insertEmployee
+    
 };

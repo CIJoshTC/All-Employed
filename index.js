@@ -6,7 +6,7 @@ const { getAllDepartments, getAllEmployees, getAllRoles } = require('./queries')
 async function main() {
     try {
         const departments = await getAllDepartments();
-        console.log(departments);
+       
     } catch (error) {
         console.error('Main error:', error);
     }
@@ -61,7 +61,7 @@ async function viewAllDepartments() {
 async function viewAllEmployees() {
     try {
         const employees = await getAllEmployees();
-        
+        console.table(employees);
     } catch (error) {
         console.error('Error:', error.message);
     }

@@ -131,7 +131,7 @@ async function addEmployee() {
     }
 }
 
-// Function to view all roles
+
 async function viewAllRoles() {
     try {
         const roles = await getAllRoles();

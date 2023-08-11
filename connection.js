@@ -3,8 +3,8 @@ const mysql = require('mysql2/promise'); // Note the use of 'mysql2/promise'
 // Create a connection pool
 const pool = mysql.createPool({
     host: 'localhost',
-    user: 'root', // Use your actual MySQL username here
-    password: 'root', // Use your actual MySQL password here
+    user: 'root', //actual MySQL username here
+    password: 'root', // actual MySQL password here
     database: 'employee_db'
 });
 

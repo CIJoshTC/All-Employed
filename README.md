@@ -23,5 +23,10 @@ Mysql2
 https://github.com/CIJoshTC/All-Employed/assets/127640352/def37157-3335-4f5a-9de4-53d98d71418c
 
 
+##Contact
+Github: CIJoshTC
+Email: 23joshtc@gmail.com
+
+
 
 
